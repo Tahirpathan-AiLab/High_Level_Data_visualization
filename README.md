@@ -1,24 +1,28 @@
-# High Level Data Visualization
-
 ## Code Description
 
-This project focuses on **high-level data visualization and preprocessing** using Python. It demonstrates how to process raw wearable sensor data, extract meaningful metadata, synchronize multiple sensor streams, visualize time-series signals, detect abnormal observations, and generate clean datasets for future machine learning applications.
+This project focuses on processing, visualizing, and preparing accelerometer and gyroscope sensor data collected using **MetaMotion wearable fitness tracking bands**. The goal is to transform raw sensor recordings into clean, structured, and analysis-ready datasets that can be used to build machine learning models for **barbell exercise classification** and **repetition counting**.
 
-This repository is a continuation of my **Intermediate Level Data Visualization** project, where I worked with structured datasets and preprocessing techniques. Here, I build upon those concepts by introducing wearable sensor data processing, time-series synchronization, statistical visualization, and multiple outlier detection techniques. The processed datasets generated in this project can be directly used for advanced machine learning tasks such as exercise classification and repetition counting.
+The original dataset was collected by **Dave Ebbelaar** and his collaborators during workout sessions involving **five participants** performing different barbell exercises with varying weight categories. My contribution begins after the data collection stage, where I designed and implemented the complete data processing pipeline using Python.
+
+This repository demonstrates how raw sensor recordings can be transformed through data preprocessing, time-series synchronization, visualization, and statistical outlier detection to produce high-quality datasets suitable for machine learning applications.
 
 ### Overview
 
-The workflow begins by importing the required libraries, including **Pandas** for data manipulation, **NumPy** for numerical computations, **Matplotlib** for visualization, **SciPy** for statistical calculations, **Scikit-learn** for machine learning-based outlier detection, and **Glob** for automatically reading multiple sensor files.
+The workflow begins by importing the required Python libraries, including **Pandas** for data manipulation, **NumPy** for numerical computations, **Matplotlib** for visualization, **SciPy** for statistical analysis, **Scikit-learn** for machine learning-based outlier detection, and **Glob** for automatically reading multiple sensor files.
 
-The project uses raw accelerometer and gyroscope recordings collected using **MetaMotion wearable fitness tracking bands**. Instead of manually loading each file, the script automatically reads every CSV file from the dataset directory and extracts useful metadata such as the participant identifier, exercise label, and weight category directly from the filename.
+The raw accelerometer and gyroscope recordings are loaded from the MetaMotion dataset. Metadata such as the participant identifier, exercise label, and weight category are automatically extracted from the filenames, eliminating the need for manual annotation.
 
-The accelerometer and gyroscope datasets are then merged into a single time-series dataset. Sensor timestamps are converted into datetime format, allowing efficient time-based analysis. Since both sensors operate at different sampling frequencies, the signals are resampled into a common **200-millisecond** interval to ensure synchronization.
+The accelerometer and gyroscope measurements are merged into a unified time-series dataset. Sensor timestamps are converted into datetime format, and both sensor streams are synchronized using time-series resampling to create consistent observations across different sampling frequencies.
 
-After creating the processed dataset, the project performs exploratory data visualization using box plots and histograms to better understand the distribution of sensor measurements.
+To better understand the characteristics of the sensor data, the project includes exploratory visualizations using box plots and histograms. These visualizations help analyze data distributions and identify unusual observations before applying machine learning.
 
-To improve data quality, three different outlier detection techniques are implemented and compared: **Interquartile Range (IQR)**, **Chauvenet's Criterion**, and **Local Outlier Factor (LOF)**. These methods help identify abnormal sensor readings that could negatively impact future machine learning models.
+To improve dataset quality, three statistical outlier detection techniques are implemented and compared:
 
-Finally, the processed dataset and the cleaned dataset are exported as **Pickle** files, allowing them to be efficiently reused in future analysis without repeating the preprocessing pipeline.
+* **Interquartile Range (IQR)** for distribution-based outlier detection.
+* **Chauvenet's Criterion** for probability-based anomaly detection.
+* **Local Outlier Factor (LOF)** for density-based anomaly detection.
+
+Finally, the processed dataset and the cleaned dataset are exported as Pickle files, providing reusable datasets for the next stages of the machine learning pipeline, including feature engineering, exercise classification, and repetition counting.
 
 ---
 

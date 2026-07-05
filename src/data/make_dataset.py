@@ -159,8 +159,8 @@ data_merge.columns = [
 # Gyroscope:        25.000Hz
 
 sampling = {
-    "acc_y": "mean",
     "acc_x": "mean",
+    "acc_y": "mean",
     "acc_z": "mean",
     "gyr_x": "mean",
     "gyr_y": "mean",

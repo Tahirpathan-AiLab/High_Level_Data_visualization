@@ -1,4 +1,4 @@
-## Code Description
+## Code Description 
 
 This project focuses on processing, visualizing, and preparing accelerometer and gyroscope sensor data collected using **MetaMotion wearable fitness tracking bands**. The goal is to transform raw sensor recordings into clean, structured, and analysis-ready datasets that can be used to build machine learning models for **barbell exercise classification** and **repetition counting**.
 
